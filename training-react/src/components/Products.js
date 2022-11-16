@@ -20,7 +20,7 @@ function Products({ data, setData, removeItem }) {
         <tbody>
           {data.map((item, index) => (
             <Product
-              key={index}
+              key={item.id}
               index={index}
               product={item}
               item={item}
