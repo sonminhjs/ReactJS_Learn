@@ -20,7 +20,7 @@ const App = () => {
   const [stock, setStock] = useState("");
   const [brand, setBrand] = useState("");
 
-  const handleSave = () => {
+  const handleSave = (id) => {
     const newData = {
       id: data.length + 1,
       title: title,

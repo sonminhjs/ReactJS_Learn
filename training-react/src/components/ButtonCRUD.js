@@ -14,7 +14,7 @@ function ButtonCRUD({ color, text, icon, onClick }) {
     </Button>
   );
 }
-// Button.defaultProps = {
+// ButtonCRUD.defaultProps = {
 //   color: "red",
 //   text: "Nguyễn Minh Sơn",
 // };

@@ -110,7 +110,11 @@ function Product({ product, removeItem, item, setData, data }) {
           onClick={() => handleShow(product.id)}
         ></ButtonCRUD>{" "}
         <ButtonCRUD
-          onClick={() => removeItemComponent(item.id)}
+          onClick={() => {
+            if (window.confirm("Bạn chắc chắn muốn xóa sản phẩm này không ?"))
+              removeItemComponent();
+          }}
+          // onClick={removeItemComponent}
           text="Delete"
           color="red"
           icon="delete"
