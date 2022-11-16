@@ -1,6 +1,6 @@
 import React from "react";
 import Product from "./Product";
-function Products({ data, handleEdit, removeItem }) {
+function Products({ data, setData, removeItem }) {
   return (
     <div>
       <table
@@ -23,9 +23,10 @@ function Products({ data, handleEdit, removeItem }) {
               key={index}
               index={index}
               product={item}
-              onClick={handleEdit}
               item={item}
               removeItem={removeItem}
+              data={data}
+              setData={setData}
             />
           ))}
         </tbody>

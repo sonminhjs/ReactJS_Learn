@@ -1,22 +1,17 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
-import { faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
+import Button from "react-bootstrap/Button";
+import { faPen, faTrash, faPlus } from "@fortawesome/free-solid-svg-icons";
 function ButtonCRUD({ color, text, icon, onClick }) {
   return (
-    <button
+    <Button
       className="container"
       onClick={onClick}
       style={{ backgroundColor: color }}
     >
-      {icon && (
-        <FontAwesomeIcon
-          color="white"
-          icon={icon === "edit" ? faPen : faTrash}
-        ></FontAwesomeIcon>
-      )}
-      {text}
-    </button>
+      {icon && <FontAwesomeIcon color="white"></FontAwesomeIcon>} {text}
+    </Button>
   );
 }
 // Button.defaultProps = {
