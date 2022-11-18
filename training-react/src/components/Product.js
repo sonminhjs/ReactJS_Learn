@@ -4,10 +4,10 @@ import ButtonCRUD from "./ButtonCRUD";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function Product({ product, removeItem, item, setData, data }) {
+function Product({ product, removeItem, item, setData, data,index }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = (id) => {
+  const handleShow = () => {
     setShow(true);
     setTitle(product.title);
     setPrice(product.price);
@@ -44,7 +44,8 @@ function Product({ product, removeItem, item, setData, data }) {
 
   return (
     <tr>
-      <td>{product.id}</td>
+     {/* <td><img src={product.thumbnail} /></td> */}
+      <td>{index + 1}</td>
       <td>{product.title}</td>
       <td>{product.price}</td>
       <td>{product.stock}</td>

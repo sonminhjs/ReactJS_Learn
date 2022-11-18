@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import Products from "./Products";
-// import { currentData } from "./data";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -19,10 +18,7 @@ const ListProduct = () =>{
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [brand, setBrand] = useState("");
-  const [idLength, setIdLength] = useState(data.length + 21);
-  
 
-  
 /*
 useEffect(() => {
     const getData = async () => {
@@ -46,18 +42,23 @@ useEffect(() => {
       const baseURL = "http://localhost:5000/currentData";
       const response = await axios.get(baseURL);
       const new_data = response.data;
-
-       setData(new_data);
+      setData(new_data);
+      // console.log(new_data);
     }
     getData();
   }, [])
 
 
-  const handleSave = (id) => {
-    const newData = { id: idLength, title: title, price: price, stock: stock, brand: brand };
-      setIdLength(prev => prev + 1)
-      setData([...data, newData]);
-      setShow(false);
+  const handleSave = () => {
+    if (title !== "" && price !== "" && stock !== "" && brand !== "") {
+      const newData = { title: title, price: price, stock: stock, brand: brand }; 
+            setData([...data, newData]);
+            setShow(false);
+        }
+        setTitle("");
+        setPrice("");
+        setStock("");
+        setBrand("");
   };
  
   const handleRemove = (id) => {
@@ -76,7 +77,7 @@ useEffect(() => {
         variant="primary"
         onClick={handleShow}
       >
-        Add
+        Add 
       </Button>
 
       <Modal show={show} onHide={handleClose}>
