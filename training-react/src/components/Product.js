@@ -94,8 +94,8 @@ function Product({ product, removeItem, item, setData, data }) {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
+            <Button variant="danger" onClick={handleClose}>
+              Cancel
             </Button>
             <Button variant="primary" onClick={() => handleSave(product.id)}>
               Save
@@ -110,7 +110,7 @@ function Product({ product, removeItem, item, setData, data }) {
         ></ButtonCRUD>{" "}
         <ButtonCRUD
           onClick={() => {
-            if (window.confirm("Bạn chắc chắn muốn xóa sản phẩm này không ?"))
+            if (window.confirm("Bạn có chắc chắn muốn xóa sản phẩm này không ?"))
               removeItemComponent();
           }}
           // onClick={removeItemComponent}

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Products from "./Products";
-import { currentData } from "./data";
-
+// import { currentData } from "./data";
+import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 import "../App.css";
 
 const ListProduct = () =>{
- const [data, setData] = useState(currentData);
+  const [data, setData] = useState([]);
 
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -19,10 +19,43 @@ const ListProduct = () =>{
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [brand, setBrand] = useState("");
- const [idLength, setIdLength] = useState(currentData.length + 1);
+  const [idLength, setIdLength] = useState(data.length + 21);
+  
+
+  
+/*
+useEffect(() => {
+    const getData = async () => {
+      const new_data = await fetchData();
+      setData(new_data);
+    };
+    getData();
+}, []);
+*/
+  
+/*
+// const fetchData = async () => {
+// const res = await fetch("http://localhost:5000/currentData");
+// const dataJSON = await res.json();
+//   return dataJSON;
+  
+// };
+*/
+  useEffect(() => {
+    const getData = async function () {
+      const baseURL = "http://localhost:5000/currentData";
+      const response = await axios.get(baseURL);
+      const new_data = response.data;
+
+       setData(new_data);
+    }
+    getData();
+  }, [])
+
+
   const handleSave = (id) => {
-  setIdLength(count => count + 1)
     const newData = { id: idLength, title: title, price: price, stock: stock, brand: brand };
+      setIdLength(prev => prev + 1)
       setData([...data, newData]);
       setShow(false);
   };
@@ -85,8 +118,8 @@ const ListProduct = () =>{
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
+          <Button variant="danger" onClick={handleClose}>
+            Cancel
           </Button>
           <Button variant="primary" onClick={handleSave}>
             Save

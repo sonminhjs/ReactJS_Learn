@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Products from "./components/Products";
-import { currentData } from "./components/data";
+// import { useState } from "react";
+// import Products from "./components/Products";
+// import { currentData } from "./components/data";
 
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+// import Button from "react-bootstrap/Button";
+// import Modal from "react-bootstrap/Modal";
 
-import ButtonCRUD from "./components/ButtonCRUD";
+// import ButtonCRUD from "./components/ButtonCRUD";
 import "./App.css";
 import ListProduct from "./components/ListProduct";
 
@@ -16,3 +16,4 @@ const App = () => {
 };
 
 export default App;
+
