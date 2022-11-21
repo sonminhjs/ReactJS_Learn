@@ -17,3 +17,15 @@ button {
 .btn {
   width: 91px;
 }
+.Title {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 2em;
+  margin-bottom: 2em;
+  background-color: rgb(4, 4, 4);
+  color: #fff;
+  
+}

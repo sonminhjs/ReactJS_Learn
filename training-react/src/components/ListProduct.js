@@ -49,7 +49,10 @@ useEffect(() => {
   }, [])
 
 
-  const handleSave = () => {
+  const handleSave = async (id) => {
+     await fetch(`http://localhost:5000/currentData/`, {
+      method: "POST",
+    });
     if (title !== "" && price !== "" && stock !== "" && brand !== "") {
       const newData = { title: title, price: price, stock: stock, brand: brand }; 
             setData([...data, newData]);
@@ -61,10 +64,19 @@ useEffect(() => {
         setBrand("");
   };
  
-  const handleRemove = (id) => {
+  // const handleRemove = (id) => {
+  //   const newData = data.filter((item) => item.id !== id);
+  //   setData(newData);
+  // };
+
+   const  handleRemove = async (id) => {
+    await fetch(`http://localhost:5000/currentData/${id}`, {
+      method: "DELETE",
+    });
     const newData = data.filter((item) => item.id !== id);
     setData(newData);
   };
+ 
 
   return (
     <div className="App">
