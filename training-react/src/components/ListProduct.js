@@ -7,7 +7,7 @@ import Modal from "react-bootstrap/Modal";
 
 import "../App.css";
 
-const ListProduct = () =>{
+const ListProduct = () => {
   const [data, setData] = useState([]);
 
   const [show, setShow] = useState(false);
@@ -19,24 +19,23 @@ const ListProduct = () =>{
   const [stock, setStock] = useState("");
   const [brand, setBrand] = useState("");
 
-/*
-useEffect(() => {
-    const getData = async () => {
-      const new_data = await fetchData();
-      setData(new_data);
-    };
-    getData();
-}, []);
-*/
-  
-/*
-// const fetchData = async () => {
-// const res = await fetch("http://localhost:5000/currentData");
-// const dataJSON = await res.json();
-//   return dataJSON;
-  
-// };
-*/
+
+  // useEffect(() => {
+  //     const getData = async () => {
+  //       const new_data = await fetchData();
+  //       setData(new_data);
+  //     };
+  //     getData();
+  // }, []);
+
+  // const fetchData = async () => {
+  // const res = await fetch("http://localhost:5000/currentData");
+  // const dataJSON = await res.json();
+  //  return dataJSON;
+
+  //  };
+
+
   useEffect(() => {
     const getData = async function () {
       const baseURL = "http://localhost:5000/currentData";
@@ -46,37 +45,40 @@ useEffect(() => {
       // console.log(new_data);
     }
     getData();
-  }, [])
+  }, [data])
 
 
   const handleSave = async (id) => {
-     await fetch(`http://localhost:5000/currentData/`, {
-      method: "POST",
-    });
     if (title !== "" && price !== "" && stock !== "" && brand !== "") {
-      const newData = { title: title, price: price, stock: stock, brand: brand }; 
-            setData([...data, newData]);
-            setShow(false);
+      const newData = { title: title, price: price, stock: stock, brand: brand };
+      await fetch(`http://localhost:5000/currentData/`, {
+        method: "POST",
+        body: JSON.stringify(newData),
+        headers: {
+          'Content-Type': 'application/json'
         }
-        setTitle("");
-        setPrice("");
-        setStock("");
-        setBrand("");
+      });
+      setShow(false);
+    }
+    setTitle("");
+    setPrice("");
+    setStock("");
+    setBrand("");
   };
- 
+
   // const handleRemove = (id) => {
   //   const newData = data.filter((item) => item.id !== id);
   //   setData(newData);
   // };
 
-   const  handleRemove = async (id) => {
+  const handleRemove = async (id) => {
     await fetch(`http://localhost:5000/currentData/${id}`, {
       method: "DELETE",
     });
     const newData = data.filter((item) => item.id !== id);
     setData(newData);
   };
- 
+
 
   return (
     <div className="App">
@@ -89,7 +91,7 @@ useEffect(() => {
         variant="primary"
         onClick={handleShow}
       >
-        Add 
+        Add
       </Button>
 
       <Modal show={show} onHide={handleClose}>

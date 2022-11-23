@@ -149,41 +149,25 @@
       ]
     },
     {
-      "id": 17,
-      "title": "Tree Oil 30ml",
-      "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
-      "price": 12,
-      "discountPercentage": 4.09,
-      "rating": 4.52,
-      "stock": 78,
-      "brand": "Hemani Tea",
-      "category": "skincare",
-      "thumbnail": "https://dummyjson.com/image/i/products/17/thumbnail.jpg",
-      "images": [
-        "https://dummyjson.com/image/i/products/17/1.jpg",
-        "https://dummyjson.com/image/i/products/17/2.jpg",
-        "https://dummyjson.com/image/i/products/17/3.jpg",
-        "https://dummyjson.com/image/i/products/17/thumbnail.jpg"
-      ]
+      "title": "sdf",
+      "price": "sdf",
+      "stock": "sdf",
+      "brand": "sdfsdf",
+      "id": 17
     },
     {
-      "id": 18,
-      "title": "Oil Free Moisturizer 100ml",
-      "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceram, hyaluronic ac & sunscreen.",
-      "price": 40,
-      "discountPercentage": 13.1,
-      "rating": 4.56,
-      "stock": 88,
-      "brand": "Dermive",
-      "category": "skincare",
-      "thumbnail": "https://dummyjson.com/image/i/products/18/thumbnail.jpg",
-      "images": [
-        "https://dummyjson.com/image/i/products/18/1.jpg",
-        "https://dummyjson.com/image/i/products/18/2.jpg",
-        "https://dummyjson.com/image/i/products/18/3.jpg",
-        "https://dummyjson.com/image/i/products/18/4.jpg",
-        "https://dummyjson.com/image/i/products/18/thumbnail.jpg"
-      ]
+      "title": "ád",
+      "price": "ádas",
+      "stock": "đá",
+      "brand": "sadasd",
+      "id": 18
+    },
+    {
+      "title": "sá",
+      "price": "ss",
+      "stock": "s",
+      "brand": "s",
+      "id": 19
     }
   ]
 }

@@ -1,40 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ButtonCRUD from "./ButtonCRUD";
+import axios from "axios";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function Product({ product, removeItem, item, setData, data,index }) {
+function Product({ product, removeItem, item, setData, data, index }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  const handleShow = () => {
-    setShow(true);
-    setTitle(product.title);
-    setPrice(product.price);
-    setStock(product.stock);
-    setBrand(product.brand);
-  };
 
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [brand, setBrand] = useState("");
 
-  const handleSave = (id) => {
+  const [idItem, setIdItem] = useState(6);
+  const [dataItem, setDataItem] = useState({});
+
+  useEffect(() => {
+    const fetchApi = async () => {
+      await axios(`http://localhost:5000/currentData/${idItem}`)
+        .then(result => {
+          setDataItem(result.data);
+        })
+    }
+    fetchApi();
+  }, [idItem]);
+
+
+  const handleShow = async (id) => {
+    setShow(true);
+    setIdItem(id);
+    setTitle(product.title);
+    setPrice(product.price);
+    setStock(product.stock);
+    setBrand(product.brand);
+  };
+
+  const handleSave = async (id) => {
     const newData = {
-      id: id,
       title: title,
       price: price,
       stock: stock,
       brand: brand,
+      
     };
-    const editedTaskList = data.map((task) => {
-      if (id === task.id) {
-        return newData;
+    await axios(`http://localhost:5000/currentData/`, {
+      method: "POST",
+      body: JSON.stringify(newData),
+      headers: {
+        'Content-Type': 'application/json'
       }
-      return task;
     });
-    setData(editedTaskList);
     setShow(false);
   };
 
@@ -44,7 +61,7 @@ function Product({ product, removeItem, item, setData, data,index }) {
 
   return (
     <tr>
-     {/* <td><img src={product.thumbnail} /></td> */}
+      {/* <td><img src={product.thumbnail} /></td> */}
       <td>{index + 1}</td>
       <td>{product.title}</td>
       <td>{product.price}</td>
@@ -114,7 +131,6 @@ function Product({ product, removeItem, item, setData, data,index }) {
             if (window.confirm("Bạn có chắc chắn muốn xóa sản phẩm này không ?"))
               removeItemComponent();
           }}
-          // onClick={removeItemComponent}
           text="Delete"
           color="red"
           icon="delete"
