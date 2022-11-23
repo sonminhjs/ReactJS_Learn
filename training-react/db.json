@@ -1,42 +1,6 @@
 {
   "currentData": [
     {
-      "id": 6,
-      "title": "MacBook Pro",
-      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
-      "price": 1749,
-      "discountPercentage": 11.02,
-      "rating": 4.57,
-      "stock": 83,
-      "brand": "APPle",
-      "category": "laptops",
-      "thumbnail": "https://dummyjson.com/image/i/products/6/thumbnail.png",
-      "images": [
-        "https://dummyjson.com/image/i/products/6/1.png",
-        "https://dummyjson.com/image/i/products/6/2.jpg",
-        "https://dummyjson.com/image/i/products/6/3.png",
-        "https://dummyjson.com/image/i/products/6/4.jpg"
-      ]
-    },
-    {
-      "id": 7,
-      "title": "Samsung Galaxy Book",
-      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
-      "price": 1499,
-      "discountPercentage": 4.15,
-      "rating": 4.25,
-      "stock": 50,
-      "brand": "Samsung",
-      "category": "laptops",
-      "thumbnail": "https://dummyjson.com/image/i/products/7/thumbnail.jpg",
-      "images": [
-        "https://dummyjson.com/image/i/products/7/1.jpg",
-        "https://dummyjson.com/image/i/products/7/2.jpg",
-        "https://dummyjson.com/image/i/products/7/3.jpg",
-        "https://dummyjson.com/image/i/products/7/thumbnail.jpg"
-      ]
-    },
-    {
       "id": 9,
       "title": "Infinix INBOOK",
       "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
@@ -168,6 +132,34 @@
       "stock": "s",
       "brand": "s",
       "id": 19
+    },
+    {
+      "title": "ádas",
+      "price": "đâs",
+      "stock": "đá",
+      "brand": "ád",
+      "id": 20
+    },
+    {
+      "title": "MacBook Proưqeqweqweq",
+      "price": 1749,
+      "stock": 83,
+      "brand": "APPle",
+      "id": 21
+    },
+    {
+      "title": "Samsung Galaxy Book",
+      "price": 1499,
+      "stock": 50,
+      "brand": "Samsungqeqeqew",
+      "id": 22
+    },
+    {
+      "title": "eqqwe231111111111",
+      "price": "qưeqwe",
+      "stock": "qưeqw",
+      "brand": "qưeqw",
+      "id": 24
     }
   ]
 }

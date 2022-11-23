@@ -17,15 +17,15 @@ function Product({ product, removeItem, item, setData, data, index }) {
   const [idItem, setIdItem] = useState(6);
   const [dataItem, setDataItem] = useState({});
 
-  useEffect(() => {
-    const fetchApi = async () => {
-      await axios(`http://localhost:5000/currentData/${idItem}`)
-        .then(result => {
-          setDataItem(result.data);
-        })
-    }
-    fetchApi();
-  }, [idItem]);
+  // useEffect(() => {
+  //   const fetchApi = async () => {
+  //     await axios(http://localhost:5000/currentData/${idItem})
+  //       .then(result => {
+  //         setDataItem(result.data);
+  //       })
+  //   }
+  //   fetchApi();
+  // }, [idItem]);
 
 
   const handleShow = async (id) => {
@@ -43,14 +43,18 @@ function Product({ product, removeItem, item, setData, data, index }) {
       price: price,
       stock: stock,
       brand: brand,
-      
+
     };
-    await axios(`http://localhost:5000/currentData/`, {
+
+    await fetch(`http://localhost:5000/currentData/`, {
       method: "POST",
       body: JSON.stringify(newData),
       headers: {
         'Content-Type': 'application/json'
       }
+    });
+    await fetch(`http://localhost:5000/currentData/${id}`, {
+      method: "DELETE",
     });
     setShow(false);
   };
