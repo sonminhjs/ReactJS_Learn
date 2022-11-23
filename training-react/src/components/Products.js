@@ -11,10 +11,10 @@ function Products({ data, setData, removeItem }) {
           <tr>
             <th width="5%">ID</th>
             <th width="25%">Title</th>
-            <th width="15%">Price</th>
-            <th width="15%">Stock</th>
+            <th width="10%">Price</th>
+            <th width="10%">Stock</th>
             <th width="20%">Brand</th>
-            <th width="20%">Action</th>
+            <th width="30%">Action</th>
           </tr>
         </thead>
         <tbody>

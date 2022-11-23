@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import ButtonCRUD from "./ButtonCRUD";
-import axios from "axios";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function Product({ product, removeItem, item, setData, data, index }) {
+import { useNavigate } from 'react-router-dom';
+
+function Product({ product, removeItem, item, index }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
@@ -14,23 +15,9 @@ function Product({ product, removeItem, item, setData, data, index }) {
   const [stock, setStock] = useState("");
   const [brand, setBrand] = useState("");
 
-  const [idItem, setIdItem] = useState(6);
-  const [dataItem, setDataItem] = useState({});
-
-  // useEffect(() => {
-  //   const fetchApi = async () => {
-  //     await axios(http://localhost:5000/currentData/${idItem})
-  //       .then(result => {
-  //         setDataItem(result.data);
-  //       })
-  //   }
-  //   fetchApi();
-  // }, [idItem]);
-
 
   const handleShow = async (id) => {
     setShow(true);
-    setIdItem(id);
     setTitle(product.title);
     setPrice(product.price);
     setStock(product.stock);
@@ -46,7 +33,7 @@ function Product({ product, removeItem, item, setData, data, index }) {
 
     };
 
-    await fetch(`http://localhost:5000/currentData/`, {
+    await fetch("http://localhost:5000/currentData/", {
       method: "POST",
       body: JSON.stringify(newData),
       headers: {
@@ -63,9 +50,13 @@ function Product({ product, removeItem, item, setData, data, index }) {
     removeItem(item.id);
   }
 
+  let navigate = useNavigate();
+  const showProduct = (id) => {
+    navigate(`/product/${id}`);
+  }
+
   return (
     <tr>
-      {/* <td><img src={product.thumbnail} /></td> */}
       <td>{index + 1}</td>
       <td>{product.title}</td>
       <td>{product.price}</td>
@@ -139,6 +130,9 @@ function Product({ product, removeItem, item, setData, data, index }) {
           color="red"
           icon="delete"
         ></ButtonCRUD>
+        <Button onDoubleClick={() => showProduct(product.id)}>
+          Show
+        </Button>
       </td>
     </tr>
   );
