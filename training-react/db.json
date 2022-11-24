@@ -108,13 +108,6 @@
       "id": 18
     },
     {
-      "title": "sá",
-      "price": "ss",
-      "stock": "s",
-      "brand": "s",
-      "id": 19
-    },
-    {
       "title": "ádas",
       "price": "đâs",
       "stock": "đá",
@@ -127,13 +120,6 @@
       "stock": 83,
       "brand": "APPle",
       "id": 21
-    },
-    {
-      "title": "qưeqweqweqweqweqweqwe",
-      "price": "sdfqưe",
-      "stock": "sdfsdeqwe",
-      "brand": "fsdqưeqwqưeqưeqweqw646666666",
-      "id": 24
     }
   ]
 }

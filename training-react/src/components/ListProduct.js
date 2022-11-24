@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 
+import React, { useState, useEffect } from "react";
 import Products from "./Products";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
@@ -19,39 +19,24 @@ const ListProduct = () => {
   const [stock, setStock] = useState("");
   const [brand, setBrand] = useState("");
 
-
-  // useEffect(() => {
-  //     const getData = async () => {
-  //       const new_data = await fetchData();
-  //       setData(new_data);
-  //     };
-  //     getData();
-  // }, []);
-
-  // const fetchData = async () => {
-  // const res = await fetch("http://localhost:5000/currentData");
-  // const dataJSON = await res.json();
-  //  return dataJSON;
-
-  //  };
+  const getData = async function () {
+    const baseURL = "http://localhost:5000/currentData";
+    const response = await axios.get(baseURL);
+    const new_data = response.data;
+    setData(new_data);
+  }
 
 
   useEffect(() => {
-    const getData = async function () {
-      const baseURL = "http://localhost:5000/currentData";
-      const response = await axios.get(baseURL);
-      const new_data = response.data;
-      setData(new_data);
-      // console.log(new_data);
-    }
+
     getData();
-  }, [data])
+  }, [])
 
 
   const handleSave = async (id) => {
     if (title !== "" && price !== "" && stock !== "" && brand !== "") {
       const newData = { title: title, price: price, stock: stock, brand: brand };
-      await fetch(`http://localhost:5000/currentData/`, {
+      await fetch("http://localhost:5000/currentData/", {
         method: "POST",
         body: JSON.stringify(newData),
         headers: {
@@ -64,12 +49,9 @@ const ListProduct = () => {
     setPrice("");
     setStock("");
     setBrand("");
-  };
+    getData();
 
-  // const handleRemove = (id) => {
-  //   const newData = data.filter((item) => item.id !== id);
-  //   setData(newData);
-  // };
+  };
 
   const handleRemove = async (id) => {
     await fetch(`http://localhost:5000/currentData/${id}`, {
@@ -77,6 +59,7 @@ const ListProduct = () => {
     });
     const newData = data.filter((item) => item.id !== id);
     setData(newData);
+
   };
 
 

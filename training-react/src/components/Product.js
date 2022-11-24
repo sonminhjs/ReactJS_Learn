@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import ButtonCRUD from "./ButtonCRUD";
+import axios from "axios";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 import { useNavigate } from 'react-router-dom';
 
-function Product({ product, removeItem, item, index }) {
+function Product({ product, removeItem, item, index, setData }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
@@ -44,6 +45,13 @@ function Product({ product, removeItem, item, index }) {
       method: "DELETE",
     });
     setShow(false);
+    const getData = async function () {
+      const baseURL = "http://localhost:5000/currentData";
+      const response = await axios.get(baseURL);
+      const new_data = response.data;
+      setData(new_data);
+    }
+    getData();
   };
 
   const removeItemComponent = () => {

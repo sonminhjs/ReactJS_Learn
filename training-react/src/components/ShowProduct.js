@@ -20,7 +20,7 @@ const ShowProduct = () => {
     console.log(data);
     return (
         <>
-            <h2 className="text-center mt-5 mb-5">Chi tiết sản phẩm</h2>
+            <h2 className="text-center mt-5 mb-5 text-primary">Chi tiết sản phẩm</h2>
             <div className="w-100 d-flex justify-content-center align-items-center">
                 <Table striped hover className="w-75 border border-1 " >
                     <thead>
