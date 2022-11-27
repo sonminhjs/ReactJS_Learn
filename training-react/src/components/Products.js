@@ -4,12 +4,6 @@ function Products({ data, setData, removeItem, searchItemName }) {
 
   const [valueSearch, setValueSearch] = useState("");
 
-  // useEffect(() => {
-  //   searchItemName(valueSearch);
-  // }, [valueSearch]);
-
-
-
   return (
     <div >
       <input

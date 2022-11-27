@@ -34,16 +34,14 @@ function Product({ product, removeItem, item, index, setData }) {
 
     };
 
-    await fetch("http://localhost:5000/currentData/", {
-      method: "POST",
+    await fetch(`http://localhost:5000/currentData/${id}`, {
+      method: "PUT",
       body: JSON.stringify(newData),
       headers: {
         'Content-Type': 'application/json'
       }
     });
-    await fetch(`http://localhost:5000/currentData/${id}`, {
-      method: "DELETE",
-    });
+
     setShow(false);
     const getData = async function () {
       const baseURL = "http://localhost:5000/currentData";

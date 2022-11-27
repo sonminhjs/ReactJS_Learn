@@ -65,7 +65,7 @@ const ListProduct = () => {
       );
       setData(newData);
     } else {
-      setData(data);
+      getData();
     }
   }
 
