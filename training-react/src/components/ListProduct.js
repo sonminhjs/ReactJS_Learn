@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Products from "./Products";
 import axios from "axios";
@@ -6,32 +5,31 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
 import "../App.css";
+import Search from "./Search";
 
 const ListProduct = () => {
+
   const [data, setData] = useState([]);
-
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const [brand, setBrand] = useState("");
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const getData = async function () {
     const baseURL = "http://localhost:5000/currentData";
     const response = await axios.get(baseURL);
     const new_data = response.data;
     setData(new_data);
+    // console.log(new_data);
   }
 
-
   useEffect(() => {
-
     getData();
   }, [])
-
 
   const handleSave = async (id) => {
     if (title !== "" && price !== "" && stock !== "" && brand !== "") {
@@ -50,7 +48,6 @@ const ListProduct = () => {
     setStock("");
     setBrand("");
     getData();
-
   };
 
   const handleRemove = async (id) => {
@@ -59,15 +56,22 @@ const ListProduct = () => {
     });
     const newData = data.filter((item) => item.id !== id);
     setData(newData);
-
   };
 
+  const searchItemName = (value) => {
+    if (value !== "") {
+      const newData = data.filter((item) =>
+        item.title.toLowerCase().includes(value.toLowerCase().trim())
+      );
+      setData(newData);
+    } else {
+      setData(data);
+    }
+  }
 
   return (
     <div className="App">
       <h1 style={{ color: "orange" }}>Product Management</h1>
-      {/* <ButtonCRUD></ButtonCRUD> */}
-
       <Button
         style={{ marginLeft: 1236 }}
         text="Add"
@@ -124,7 +128,13 @@ const ListProduct = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      <Products data={data} setData={setData} removeItem={handleRemove} />
+      <Search searchItemName={searchItemName} />
+      <Products
+        data={data}
+        setData={setData}
+        removeItem={handleRemove}
+        searchItemName={searchItemName}
+      />
     </div>
   );
 }

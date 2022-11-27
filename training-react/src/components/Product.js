@@ -70,7 +70,6 @@ function Product({ product, removeItem, item, index, setData }) {
       <td>{product.price}</td>
       <td>{product.stock}</td>
       <td>{product.brand}</td>
-
       <td>
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>

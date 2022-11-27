@@ -29,3 +29,12 @@ button {
   color: #fff;
   
 }
+.search {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.search2 {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

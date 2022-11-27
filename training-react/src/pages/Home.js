@@ -4,9 +4,9 @@ import ListProduct from '../components/ListProduct'
 function Home() {
     return (
         <>
-            <ListProduct/>
+            <ListProduct />
         </>
-  )
+    )
 }
 
 export default Home
