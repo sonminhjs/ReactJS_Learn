@@ -1,0 +1,84 @@
+.container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-areas:
+    "display display display display"
+    "clear c divide multiply"
+    "seven eight nine subtract"
+    "four five six add"
+    "one two three equals"
+    "zero zero decimal equals";
+}
+
+.padButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: #ffcc0e;
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.padButton:hover {
+  opacity: 0.8;
+}
+
+.display {
+  grid-area: display;
+  background-color:black;
+  text-align: right;
+}
+.exp {
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  border: none;
+  margin-right: 10px;
+  text-align: right;
+  width: 98%;
+  background-color: black;
+}
+.answer {
+  color: #0076fc;
+  font-size: 40px;
+  border: none;
+  margin-right: 10px;
+  text-align: right;
+  width: 70px;
+  height: 80px;
+  background-color: black;
+}
+.calculator-title{
+    font-size:30px;
+    background: rgb(247, 0, 255);
+    width: 500px;
+    padding: 10px 10px;
+    border-radius: 2px;
+    border: 2px solid ;
+    color: #386338;
+}
+.equals {
+  grid-area: equals;
+  background-color: #ffcc0e;
+}
+.zero {
+  grid-area: zero;
+}
+
+.dark-grey {
+  background-color: rgb(254, 241, 217);
+}
+.red {
+  background-color: #ffcc0e;
+}
